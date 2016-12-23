@@ -1,0 +1,56 @@
+# Project: AQUARIA
+# Makefile created by Dev-C++ 5.4.1
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o Scene.o Renderable.o Camera.o Quad.o StarFish.o Crab.o Octopus.o Plant.o Fish.o
+LINKOBJ  = main.o Scene.o Renderable.o Camera.o Quad.o StarFish.o Crab.o Octopus.o Plant.o Fish.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+BIN      = AQUARIA.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -DGLUT_STATIC -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Scene.o: Scene.cpp
+	$(CPP) -c Scene.cpp -o Scene.o $(CXXFLAGS)
+
+Renderable.o: Renderable.cpp
+	$(CPP) -c Renderable.cpp -o Renderable.o $(CXXFLAGS)
+
+Camera.o: Camera.cpp
+	$(CPP) -c Camera.cpp -o Camera.o $(CXXFLAGS)
+
+Quad.o: Quad.cpp
+	$(CPP) -c Quad.cpp -o Quad.o $(CXXFLAGS)
+
+StarFish.o: StarFish.cpp
+	$(CPP) -c StarFish.cpp -o StarFish.o $(CXXFLAGS)
+
+Crab.o: Crab.cpp
+	$(CPP) -c Crab.cpp -o Crab.o $(CXXFLAGS)
+
+Octopus.o: Octopus.cpp
+	$(CPP) -c Octopus.cpp -o Octopus.o $(CXXFLAGS)
+
+Plant.o: Plant.cpp
+	$(CPP) -c Plant.cpp -o Plant.o $(CXXFLAGS)
+
+Fish.o: Fish.cpp
+	$(CPP) -c Fish.cpp -o Fish.o $(CXXFLAGS)
